@@ -9,6 +9,7 @@ import Home from './routes/Home';
 import Statistics from './routes/Statistics'
 import Login from './routes/Login'
 import Signup from './routes/Signup'
+import Submitted from './routes/Submitted';
 
 export default function App(){
   return(
@@ -19,6 +20,7 @@ export default function App(){
           <Route path="statistics" element={<Statistics/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<Signup/>}/>
+          <Route path="submitted" element={<Submitted/>}/>
         </Routes>
       </BrowserRouter>
     </>

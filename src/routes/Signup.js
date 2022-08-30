@@ -7,7 +7,8 @@ import Brand from "../components/Brand";
 export default function Signup() {
   const [formData, setFormData] = React.useState({
     username: "",
-    password: ""
+    password: "",
+    confirmPassword: ""
   });
 
   function handleChange(event){
@@ -17,6 +18,13 @@ export default function Signup() {
         [event.target.name]: event.target.value
       }
     })
+  }
+
+  function validateSubmit(e){
+    if(formData.password != formData.confirmPassword){
+      e.preventDefault();
+      alert("Password and Confirm Password are different");
+    }
   }
 
   return (
@@ -40,9 +48,9 @@ export default function Signup() {
         <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
           <Form.Label className="fs-3">Confirm password</Form.Label>
           <Form.Control name="confirmPassword" type="password" placeholder="Password" 
-          value={formData.password} onChange={handleChange}/>
+          value={formData.confirmPassword} onChange={handleChange}/>
         </Form.Group>
-        <Button variant="primary" id="button" type="submit">
+        <Button variant="primary" id="button" type="submit" onClick={validateSubmit}>
           Submit
         </Button>
       </Form>
