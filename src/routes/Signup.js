@@ -19,15 +19,11 @@ export default function Signup() {
     })
   }
 
-  function handleSubmit(e){
-    e.preventDefault();
-  }
-  
   return (
     <>
     <NavigationBar/>
     <div className="d-flex align-items-center justify-content-center" style={{height: '85vh'}}>
-      <Form className="col-xl-4 col-lg-5 col-8 col-md-6 p-5"
+      <Form className="col-xl-4 col-lg-5 col-8 col-md-6 p-5" action="http://localhost:5000/signup/submit" method="POST"
       style={{backgroundColor: '#eb9347', borderRadius: '25px'}}>
         <h1 className="text-center text-decoration-underline mb-4">Sign Up</h1>
         <Brand/>
@@ -41,12 +37,12 @@ export default function Signup() {
           <Form.Control name="password" type="password" placeholder="Password" 
           value={formData.password} onChange={handleChange}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
           <Form.Label className="fs-3">Confirm password</Form.Label>
-          <Form.Control name="password" type="password" placeholder="Password" 
+          <Form.Control name="confirmPassword" type="password" placeholder="Password" 
           value={formData.password} onChange={handleChange}/>
         </Form.Group>
-        <Button variant="primary" id="button" type="submit" onClick={handleSubmit}>
+        <Button variant="primary" id="button" type="submit">
           Submit
         </Button>
       </Form>
