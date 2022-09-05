@@ -3,11 +3,13 @@ import NavigationBar from "../components/Nav";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Brand from "../components/Brand";
+import axios from "axios";
 
 export default function Login() {
+  const TEST_VALUE = "test"
   const [formData, setFormData] = React.useState({
-    username: "",
-    password: ""
+    username: TEST_VALUE,
+    password: TEST_VALUE
   });
 
   function handleChange(event){
@@ -17,6 +19,19 @@ export default function Login() {
         [event.target.name]: event.target.value
       }
     })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    axios.post('http://localhost:5000/login/submit', formData)
+      .then(res => {
+        if(res.data === "Successful"){
+          window.location.href = '/submitted';
+        }else{
+          console.log("Login failed");
+        }
+      })
+      .catch(err => console.log(err))
   }
   
   return (
@@ -42,7 +57,7 @@ export default function Login() {
             </Form.Text>
           </a>
         </Form.Group>
-        <Button variant="primary" id="button" type="submit">
+        <Button variant="primary" id="button" type="submit" onClick={handleSubmit}>
           Done
         </Button>
       </Form>

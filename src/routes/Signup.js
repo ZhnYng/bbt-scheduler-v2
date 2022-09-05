@@ -6,7 +6,7 @@ import Brand from "../components/Brand";
 import axios from "axios";
 
 export default function Signup() {
-  const TEST_VALUE = "test";
+  const TEST_VALUE = "";
   const [formData, setFormData] = React.useState({
     username: TEST_VALUE,
     password: TEST_VALUE,
