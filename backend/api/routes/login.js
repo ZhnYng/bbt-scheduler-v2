@@ -1,8 +1,9 @@
 var express = require('express');
-var router = express.Router();
-var db = require('../database/database');
-var session = require('express-session');
 const bcrypt = require("bcrypt");
+var router = express.Router();
+var flash = require('express-flash');
+var session = require('express-session');
+var db = require('../database/database');
 
 router.use(session({ 
   secret: 'login!@#Sessefi2398',
@@ -11,33 +12,23 @@ router.use(session({
   cookie: { maxAge: 60000 }
 }))
 
+router.use(flash());
 
 router.post('/submit', (req, res) => {
-  // res.send("Successful");
   var username = req.body.username;
   var password = req.body.password;
   
-  var sql = `SELECT username FROM accounts`;
-  db.query(sql, function(err, result) {
+  var sql = `SELECT password FROM accounts WHERE username = "${username}"`;
+  db.query(sql, async function(err, result) {
     if (err) throw err;
-    var exists = false;
-    for(const row of result){
-      const existingUsername = row.username;
-      if(existingUsername === username){
-        exists = true;
-        var sql = `SELECT password FROM accounts WHERE username = "${username}"`;
-        db.query(sql, function(err, result) {
-          const validPassword = bcrypt.compare(result[0].password);
-          if(validPassword){
-            res.send("Successful");
-          }else{
-            res.send("Unsuccessful")
-          }
-        })
-        break;
-      }
+    req.flash('success', 'Data retrieved successfully!');
+    const validPassword = await bcrypt.compare(password, result[0].password);
+    if(validPassword){
+      res.send("Successful");
+    }else{
+      res.send("Unsuccessful");
     }
-  })
+  });
 })
 
 module.exports = router;
