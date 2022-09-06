@@ -17,12 +17,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dep:start": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start": "node ./backend/api/bin/www",
-    "dep:dev": "concurrently npm:dep*"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
