@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dep:dev": "node ./backend/api/bin/www",
-    "start": "concurrently npm:dep*"
+    "start": "node ./backend/api/bin/www",
+    "dep:dev": "concurrently npm:dep*"
   },
   "eslintConfig": {
     "extends": [
