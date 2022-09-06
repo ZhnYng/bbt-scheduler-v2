@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dep:dev": "node ./backend/api/bin/www",
-    "dev": "concurrently npm:dep*"
+    "start": "concurrently npm:dep*"
   },
   "eslintConfig": {
     "extends": [
