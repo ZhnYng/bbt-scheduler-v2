@@ -1,47 +1,22 @@
 {
-  "name": "react-bbt-scheduler",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@popperjs/core": "^2.11.5",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.1",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "bootstrap": "^5.2.0",
-    "react": "^18.0.0",
-    "react-bootstrap": "^2.5.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "bbt-scheduler-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "sstart": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start": "node ./backend/api/bin/www"
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix backend/api",
+    "start": "concurrently \"npm run client\" \"npm run server\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhnYng/bbt-scheduler-v2.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhnYng/bbt-scheduler-v2/issues"
   },
-  "devDependencies": {
-    "concurrently": "^7.3.0"
-  }
+  "homepage": "https://github.com/ZhnYng/bbt-scheduler-v2#readme"
 }
