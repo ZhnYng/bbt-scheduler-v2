@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ZhnYng/bbt-scheduler-v2/issues"
   },
-  "homepage": "https://github.com/ZhnYng/bbt-scheduler-v2#readme"
+  "homepage": "https://github.com/ZhnYng/bbt-scheduler-v2#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
 }
