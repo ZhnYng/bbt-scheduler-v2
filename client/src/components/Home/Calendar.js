@@ -1,8 +1,21 @@
 import React from "react";
 
-export default function Calendar(){
+export default function Calendar(props){
 
-  const [days, setDays] = React.useState(99)
+  const [days, setDays] = React.useState(":/")
+
+  React.useEffect(() => {
+    const userInfo = props.userInfo
+    for(var i = 1; i < userInfo.length; i++){
+      var wroteLatest = userInfo[userInfo.length-i];
+      if(wroteLatest.drankToday){
+        const diffTime = Math.abs(new Date() - new Date(wroteLatest.date));
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+        setDays(diffDays);
+        break;
+      }
+    }
+  }, [props.userInfo])
 
   return (
     <div className="shadow p-4 text-center rounded">
@@ -13,7 +26,7 @@ export default function Calendar(){
         style={{backgroundColor: '#eb9347'}}>
           {days}
         </div>
-        days ago
+        day{days == 1 ? '' : 's'} ago
       </h1>
     </div>
   )
