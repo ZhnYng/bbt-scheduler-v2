@@ -24,7 +24,7 @@ CREATE TABLE goal (
 CREATE TABLE drinks (
 	drinks_id int NOT NULL AUTO_INCREMENT,
     drinks int NOT NULL,
-    curr_date int NOT NULL,
+    curr_date date NOT NULL,
     user_id int,
 	last_updated TIMESTAMP NOT NULL DEFAULT NOW(),
     PRIMARY KEY (drinks_id),
